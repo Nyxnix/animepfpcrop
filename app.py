@@ -19,19 +19,18 @@ def detect(filename, cascade_file = "lbpcascade_animeface.xml"):
                                      
     count = 0
     imgnorect = image.copy() # Copy image before adding rectangle
-    #top_shift_scale = 0.5 # param
-    #x_scale = 0.20 # param
-
-    # All the commented out stuff in the for loop is for padding around the image, currently breaks the whole thing
+    top_shift_scale = 0.5 # param
+    x_scale = 0.20 # param
 
     for (x, y, w, h) in faces:
-        #y_shift = int(h * top_shift_scale) # Padding y axis
-        #x_shift = int(w * x_scale) # Padding x axis
-        face = imgnorect[y:y+h, x:x+w]
-        #crop_img = imgnorect[y - y_shift:y+h, x - x_shift:x+w+x_shift] # Crop image with no rectange and add padding
-        cv2.imwrite(str(count)+'.png', face) # Save face(s) to .png
+        y_shift = int(h * top_shift_scale) # Padding y axis
+        x_shift = int(w * x_scale) # Padding x axis
+        crop_img = imgnorect[y - y_shift:y+h, x - x_shift:x+w+x_shift] # Crop image with no rectange and add padding
+        cv2.imwrite(str(count)+'.png', crop_img) # Save face(s) to .png
         count += 1 # Incriment Counter
         imgrect = cv2.rectangle(image, (x , y), (x + w, y + h), (0, 0, 255), 2) # Add rectange to face
+        y_shift = int(h * top_shift_scale) # reset y_shift
+        x_shift = int(w * x_scale) # reset x_shift
 
     # Save imgrect
     cv2.imwrite("out.png", imgrect)

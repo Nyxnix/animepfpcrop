@@ -23,12 +23,25 @@ python app.py 1.png
 ## Acknowledgements
 
  - [nagadomi's cascade file](https://github.com/nagadomi/lbpcascade_animeface)
- Most of the code is from their example, I simply added the functionality to crop and save the images individually.
 
 
 ## Screenshots
 
 More examples are in the examples folder
+
+![1](https://i.imgur.com/RmTD2TY.png)
+
+![2](https://i.imgur.com/joLLSxD.png)
+
+![3](https://i.imgur.com/oWBAUb0.png)
+
+![4](https://i.imgur.com/Aoio73E.png)
+
+![5](https://i.imgur.com/qE131tN.png)
+
+![6](https://i.imgur.com/rUpM9ve.png)
+
+# Version before padding was added
 
 ![1](https://i.imgur.com/zBU5FCa.jpg)
 
